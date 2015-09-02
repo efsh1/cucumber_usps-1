@@ -1,0 +1,7 @@
+<% standard_opts = "--format junit --out junit_format --format html --out report.html --no-source --format pretty --require features"%>
+login: <% standard_opts%> --tags @login
+
+calculate_price: <% standard_opts%> --tags @calculate_price --tags ~@wip
+
+zip_code: <% standard_opts%> --tags @zip_code
+
