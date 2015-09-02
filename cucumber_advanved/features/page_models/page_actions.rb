@@ -43,10 +43,12 @@ class PageActions
 
 
   def wait_for_text(timeout = 60, text)
-        wait_for(timeout){@browser.page_source.include? text}
+    # this block will wait for text on a page
+  wait_for(timeout){@browser.page_source.include? text}
   end
 
   def wait_for_element_displayed(timeout = 60, element)
+        # this block will wait for an element on the page
         wait_for(timeout){element.displayed?}
   end
 
