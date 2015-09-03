@@ -1,5 +1,5 @@
 class PageActions
-
+  
   def initialize browser
     @browser = browser
   end
@@ -14,8 +14,7 @@ class PageActions
     #initial_url == "http://www.usps.com"
     initial_url.gsub!("usps.com", get_environment)
   end
-
-
+  
   def with_reduced_timeout(&block)
       @browser.manage.timeouts.implicit_wait = 1
       result = yield
@@ -41,15 +40,13 @@ class PageActions
        end
   end
 
-
+ # this block will wait for text on a page
   def wait_for_text(timeout = 60, text)
-    # this block will wait for text on a page
-  wait_for(timeout){@browser.page_source.include? text}
+    wait_for(timeout){@browser.page_source.include? text}
   end
-
+# this block will wait for an element on the page
   def wait_for_element_displayed(timeout = 60, element)
-        # this block will wait for an element on the page
-        wait_for(timeout){element.displayed?}
+     wait_for(timeout){element.displayed?}
   end
 
 end
