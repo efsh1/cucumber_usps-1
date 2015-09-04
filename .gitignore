@@ -1,4 +1,4 @@
-.idea/
-features/screenshots/
+.idea
+features/screenshots
 report.html
 Gemfile.lock

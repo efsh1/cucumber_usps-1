@@ -16,5 +16,8 @@ class USPS < PageActions
     @calculate_a_price_page ||=CalculatePrice.new @browser
   end
 
+  def hold_mail_page
+    @hold_mail_page ||=HoldMailPage.new @browser
+  end
 
 end
