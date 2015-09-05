@@ -21,12 +21,12 @@ class FindZipCodePage < PageActions
     state_list = @browser.find_element(:css, "ul.select-ul").find_elements(:tag_name, "a")
 
     state_list.find {|element| element.text == state}.click
-    state_list.each do |element|
-      if element.text == state
-        element.click
-       break
-       end
-    end
+    # state_list.each do |element|
+    #   if element.text == state
+    #     element.click
+    #    break
+    #    end
+    # end
   end
 
   def find_zip_code_button
