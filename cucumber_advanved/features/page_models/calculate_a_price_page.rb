@@ -8,11 +8,9 @@ class CalculatePrice < PageActions
 
   def calculate_a_price
     @browser.find_element(:xpath, "//a [@href='http://postcalc.usps.com/']")
-
   end
 
   def zip_code_look_up_link
-
     #1 HW move 'zip_code_look_up_link' to own class page PriceCalculate
     #2 verify HREF is not empty
     @browser.find_element(id: "ctl00_ContentPlaceHolder1_HyperLink2")
@@ -73,11 +71,30 @@ class CalculatePrice < PageActions
   def price_result
     prices = [ ]
     all_elements =  @browser.find_element(:id, "ctl00_ContentPlaceHolder1_Accordion1_Pane_0_content_TableAccordionContent").find_elements(:tag_name, 'td')
-
     all_elements.each{|e| prices << e.find_element(:tag_name, 'div').text}
-
     prices.find_all{|price| price.include? "$"}
   end
 
-end
+  def select_country
+    country_list = @browser.find_elements(:tag_name, "option")
+    country_list.detect{|element| element.text == "Albania"}
+  end
 
+  def price_result_intr
+    prices = [ ]
+    all_elements =  @browser.find_element(:id, "ctl00_ContentPlaceHolder1_TableNonAccordionContent").find_elements(:tag_name, 'td')
+    all_elements.each{|e| prices << e.find_element(:tag_name, 'div').text}
+    prices.find_all{|price| price.include? "$"}
+  end
+
+  def value_of_package
+    field = @browser.find_element(:id, "ctl00_ContentPlaceHolder1_TextBoxContentValue")
+    wait_for_element_displayed(field)
+    field
+  end
+
+  def select_rate_box
+    @browser.find_element(:id, "ctl00_ContentPlaceHolder1_RepeaterCarousel_ctl01_ImageCarousel")
+  end
+
+end

@@ -51,16 +51,32 @@ And(/^I should be able see Print Postage button as "([^"]*)"$/) do |arg|
   expect(usps.calculate_a_price_page.print_postage_button.attribute("alt")).to be == arg
 end
 
-
 Then(/^I select shape as Package$/) do
   usps.calculate_a_price_page.select_shape_as_package.click
 end
 
 Then(/^I enter package Weight as "([^"]*)" Pounds$/) do |weight|
   usps.calculate_a_price_page.enter_weight.send_keys weight
-
 end
 
 Then(/^I should be able see the price in Priority Mail Express window$/) do
   usps.calculate_a_price_page.price_result
 end
+
+Then(/^I select destination country$/) do
+  usps.calculate_a_price_page.select_country.click
+end
+
+Then(/^I Enter Item Value as \$ "([^"]*)"$/) do |price|
+  usps.calculate_a_price_page.value_of_package.send_keys price
+end
+
+Then(/^I select Flat Rate Boxes$/) do
+  usps.calculate_a_price_page.select_rate_box.click
+end
+
+Then(/^I should be able see the price in Priority Mail Express International window$/) do
+  usps.calculate_a_price_page.price_result_intr
+end
+
+

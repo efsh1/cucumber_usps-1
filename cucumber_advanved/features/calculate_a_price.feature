@@ -25,14 +25,15 @@ Feature: Test calculate a price
 
   @wip
   Scenario: International mail
-    Given I navigate to calculate price page
-    Then I select "Iraq" as destination country
-    Then I Enter the Item's Value as $ "200"
-    Then I enter mailing date
-    Then I select shape as Package
-    Then I enter Weight as "10" Pounds
-    And  I click on Continue button
-    Then I should be able see the price in Priority Mail Express window
+    Given I navigate to home page
+    Then I successfully login with valid credentials
+    Then I press calculate a price link
+    Then I select destination country
+    Then I Enter Item Value as $ "200"
+    Then I select Flat Rate Boxes
+    Then I should be able see the price in Priority Mail Express International window
+    And I should be able see Print Postage button as "Print Postage"
+
 
 
 
