@@ -16,5 +16,4 @@ class USPS < PageActions
     @calculate_a_price_page ||=CalculatePrice.new @browser
   end
 
-
 end

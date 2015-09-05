@@ -23,7 +23,6 @@ Feature: Test calculate a price
     And I click on Continue button
     Then I should be able see the price in Priority Mail Express window
 
-  @wip
   Scenario: International mail
     Given I navigate to home page
     Then I successfully login with valid credentials
