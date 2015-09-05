@@ -75,25 +75,9 @@ class CalculatePrice < PageActions
     prices.find_all{|price| price.include? "$"}
   end
 
-  def country_dropdown
-    @browser.find_element(:id, "ctl00_ContentPlaceHolder1_DropDownListCountry")
-  end
-
   def select_country
-    country_dropdown.click
     country_list = @browser.find_elements(:tag_name, "option")
-
-
-    country_list.detect {|element| element.text == "Albania"}
-
-
-    # country_list.each do |element|
-    #   if element.text == country
-    #     element.click
-    #    break
-    #    end
-    # end
-
+    country_list.detect{|element| element.text == "Albania"}
   end
 
   def price_result_intr
